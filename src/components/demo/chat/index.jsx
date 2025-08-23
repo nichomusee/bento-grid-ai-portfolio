@@ -1,8 +1,8 @@
 import { useState } from "react";
-// Corrected import: remove extra folders if needed
 import { api } from "../../../../convex/_generated/api";
 import { useMutation } from "convex/react";
 import ThreadView from "./ThreadView";
+import "../../../styles/chat.css"
 
 function ChatSection() {
   // Corrected: match the generated API exactly
