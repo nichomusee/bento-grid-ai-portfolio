@@ -1,10 +1,21 @@
-import { Section } from "../shared/Section"   
 import "../../styles/chat/chat.css"
-import { BrushCleaning } from "lucide-react"   
+import { BrushCleaning } from "lucide-react"  
+import { api } from "../../../convex/_generated/api"
+import { useMutation } from "convex/react"
+import { useEffect } from "react"
+import { useAnonUser } from "./AnonUserContext"
 
 export default function Chat() {
+  const anonUser = useAnonUser()
 
-  
+  console.log("anon user", anonUser)
+
+  const createThread = useMutation(api.nichobot.mutation.createThreadForUser)
+
+  useEffect(() => {
+    createThread({ userId: anonUser })
+  })
+
   return (
     <div className="chat-container">
       <div className="chat-header">
@@ -15,12 +26,10 @@ export default function Chat() {
             alt="Nich Bot Avatar"
           />
         </div>
-        
-        <div className="chat-header-content">
+           <div className="chat-header-content">
           <h2 className="chat-header-title">Nich Bot</h2>
         </div>
-        
-        <button
+          <button
           className="chat-header-new-thread-btn"
           title="Start new conversation"
         >
@@ -29,8 +38,12 @@ export default function Chat() {
         
       </div>
 
-      <div    className = " chat-message-container ">
+      <div className="chat-message-container">
+        {/* <MessageList
 
+        /> */}
+
+      </div>
     </div>
   )
 }
