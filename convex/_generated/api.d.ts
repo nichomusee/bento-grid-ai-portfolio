@@ -11,7 +11,7 @@
 import type * as demo_chat from "../demo/chat.js";
 import type * as nichobot_lib from "../nichobot/lib.js";
 import type * as nichobot_mutation from "../nichobot/mutation.js";
-import type * as user from "../user.js";
+import type * as users from "../users.js";
 
 import type {
   ApiFromModules,
@@ -31,7 +31,7 @@ declare const fullApi: ApiFromModules<{
   "demo/chat": typeof demo_chat;
   "nichobot/lib": typeof nichobot_lib;
   "nichobot/mutation": typeof nichobot_mutation;
-  user: typeof user;
+  users: typeof users;
 }>;
 declare const fullApiWithMounts: typeof fullApi;
 
